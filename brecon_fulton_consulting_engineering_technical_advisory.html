@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brecon &amp; Fulton Consulting | Engineering &amp; AI Software Advisory</title>
+  <meta name="description" content="Dubai-based engineering and technology consultancy helping businesses evaluate construction automation, model building energy and climate performance, plan modular housing, and build custom AI-powered software tools." />
+
+  <!-- Google Fonts: Oswald (Architectural Headings & Wordmark) & Inter (Body Copy) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              DEFAULT: '#102A5C',
+              dark: '#0A1C3F',
+              light: '#1B3E82',
+            },
+            silver: {
+              DEFAULT: '#8A96A3',
+              light: '#C5CDD6',
+              border: '#D6DCE3',
+            },
+            platinum: '#EDF0F4',
+          },
+          fontFamily: {
+            oswald: ['Oswald', 'sans-serif'],
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Subtle architectural blueprint grid background for Hero */
+    .architectural-grid {
+      background-size: 48px 48px;
+      background-image: 
+        linear-gradient(to right, rgba(138, 150, 163, 0.09) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(138, 150, 163, 0.09) 1px, transparent 1px);
+    }
+
+    /* Custom scrollbar for clean executive finish */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #EDF0F4;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8A96A3;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #102A5C;
+    }
+
+    /* Smooth tab panel reveal */
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-panel {
+      animation: fadeSlide 0.25s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-inter antialiased selection:bg-navy selection:text-white">
+
+  <!-- ==================== STICKY NAVIGATION BAR ==================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-silver-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Wordmark Lockup -->
+      <a href="#top" class="inline-flex flex-col items-stretch group focus:outline-none" aria-label="Brecon & Fulton Consulting Home">
+        <span class="font-oswald font-bold text-xl sm:text-2xl tracking-[0.04em] text-navy leading-none uppercase">
+          BRECON &amp; FULTON
+        </span>
+        <span class="h-[1.5px] bg-silver my-1.5 w-full transition-colors duration-200 group-hover:bg-navy"></span>
+        <span class="font-inter font-medium text-[9px] sm:text-[10px] tracking-[0.36em] text-silver uppercase leading-none text-justify flex justify-between">
+          <span>C</span><span>O</span><span>N</span><span>S</span><span>U</span><span>L</span><span>T</span><span>I</span><span>N</span><span>G</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-medium tracking-[0.14em] uppercase text-slate-600">
+        <a href="#practice" class="hover:text-navy transition-colors py-1">The Firm</a>
+        <a href="#capabilities" class="hover:text-navy transition-colors py-1">Capabilities</a>
+        <a href="#track-record" class="hover:text-navy transition-colors py-1">Experience</a>
+        <a href="#contact" class="hover:text-navy transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA & Mobile Menu Button -->
+      <div class="flex items-center space-x-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 bg-navy text-white font-oswald text-xs font-medium tracking-[0.16em] uppercase rounded-[2px] hover:bg-navy-dark transition-colors shadow-sm">
+          Get in Touch
+        </a>
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2.5 border border-silver-border rounded-[2px] text-navy hover:bg-platinum focus:outline-none" aria-label="Toggle Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 6h16M4 12h16M4 18h16" />
+            <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-silver-border px-4 pt-3 pb-6 space-y-3">
+      <a href="#practice" class="mobile-nav-link block py-2 text-xs font-medium tracking-[0.15em] uppercase text-slate-700 border-b border-platinum">The Firm</a>
+      <a href="#capabilities" class="mobile-nav-link block py-2 text-xs font-medium tracking-[0.15em] uppercase text-slate-700 border-b border-platinum">Capabilities</a>
+      <a href="#track-record" class="mobile-nav-link block py-2 text-xs font-medium tracking-[0.15em] uppercase text-slate-700 border-b border-platinum">Experience</a>
+      <a href="#contact" class="mobile-nav-link block py-2 text-xs font-medium tracking-[0.15em] uppercase text-slate-700">Contact</a>
+      <div class="pt-2">
+        <a href="#contact" class="mobile-nav-link block w-full text-center px-5 py-3 bg-navy text-white font-oswald text-xs font-medium tracking-[0.16em] uppercase rounded-[2px]">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="top" class="relative bg-white architectural-grid border-b border-silver-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 sm:pt-24 sm:pb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Editorial Headline & Plain-English Positioning -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center space-x-3 mb-6">
+            <span class="w-8 h-[1.5px] bg-navy"></span>
+            <span class="text-[11px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-silver">
+              Dubai, UAE &nbsp;|&nbsp; Engineering &amp; Software Advisory
+            </span>
+          </div>
+
+          <h1 class="font-oswald font-semibold text-4xl sm:text-5xl lg:text-[54px] uppercase tracking-[0.02em] text-navy leading-[1.08] mb-6">
+            Practical Engineering &amp; AI Software Solutions for Modern Projects.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mb-10">
+            Brecon &amp; Fulton Consulting helps developers, operators, and project teams make informed technical decisions. We build intelligent AI task and workflow management tools, simulate passive and active AC-free cooling strategies, and advise on construction robotics and modular housing.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 bg-navy text-white font-oswald text-sm font-medium tracking-[0.15em] uppercase rounded-[2px] hover:bg-navy-dark transition-colors">
+              Start a Conversation
+              <svg class="w-4 h-4 ml-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a href="#capabilities" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-navy border border-navy font-oswald text-sm font-medium tracking-[0.15em] uppercase rounded-[2px] hover:bg-platinum transition-colors">
+              View Services
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Asymmetric Practice Scope Card -->
+        <div class="lg:col-span-5">
+          <div class="bg-white border border-silver-border p-7 sm:p-8 shadow-sm">
+            <div class="text-[10px] font-semibold tracking-[0.2em] uppercase text-silver pb-3 mb-5 border-b border-silver-border">
+              Core Advisory Areas
+            </div>
+            <ul class="space-y-4">
+              <li class="pb-4 border-b border-platinum">
+                <div class="font-oswald text-base uppercase tracking-[0.03em] text-navy">01. AI Workflow &amp; Task Management Tools</div>
+                <p class="text-xs text-slate-600 mt-1">An intelligent ClickUp alternative that helps teams organize tasks, automate follow-ups, and track daily deliverables.</p>
+              </li>
+              <li class="pb-4 border-b border-platinum">
+                <div class="font-oswald text-base uppercase tracking-[0.03em] text-navy">02. Passive &amp; Active AC-Free Cooling Simulations</div>
+                <p class="text-xs text-slate-600 mt-1">Testing shade structures, airflow, and low-energy cooling methods to reduce or eliminate conventional AC use.</p>
+              </li>
+              <li class="pb-4 border-b border-platinum">
+                <div class="font-oswald text-base uppercase tracking-[0.03em] text-navy">03. Autonomous Construction &amp; Robotics Systems</div>
+                <p class="text-xs text-slate-600 mt-1">Independent equipment selection, site suitability reviews, and vendor evaluations.</p>
+              </li>
+              <li>
+                <div class="font-oswald text-base uppercase tracking-[0.03em] text-navy">04. Modular &amp; Low-Income Housing Systems</div>
+                <p class="text-xs text-slate-600 mt-1">Practical structural reviews, factory-to-site planning, and cost-effective build strategies.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== THE FIRM & LEADERSHIP ==================== -->
+  <section id="practice" class="bg-white py-16 sm:py-24 border-b border-silver-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5">
+          <div class="text-[11px] font-semibold tracking-[0.2em] uppercase text-silver mb-3">01 &nbsp;/&nbsp; The Firm</div>
+          <h2 class="font-oswald font-semibold text-3xl sm:text-4xl uppercase tracking-[0.02em] text-navy leading-tight">
+            Clear Engineering Judgment &amp; Practical Software Delivery.
+          </h2>
+        </div>
+        <div class="lg:col-span-7 space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed border-l-0 lg:border-l border-silver-border lg:pl-10">
+          <p>
+            Brecon &amp; Fulton Consulting is an independent consultancy based in Dubai. We work with property developers, industrial operators, and technology ventures to solve practical engineering and operational problems without unnecessary complexity.
+          </p>
+          <p>
+            Whether replacing cluttered project trackers with an intelligent AI task workspace, testing how a space can stay cool without heavy air conditioning, or evaluating automated and modular building methods, we focus on clear answers and reliable execution.
+          </p>
+
+          <!-- Concise Leadership Subsection -->
+          <div class="pt-6 mt-6 border-t border-silver-border">
+            <div class="text-[10px] font-semibold tracking-[0.18em] uppercase text-silver mb-2">Leadership</div>
+            <h3 class="font-oswald text-xl uppercase tracking-[0.02em] text-navy mb-2">
+              Saqib Kadernani, Managing Director &amp; Principal Consultant
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Saqib Kadernani holds a BEng in Mechanical Engineering from Swansea University and an MSc in Biomedical Engineering (Distinction) from Queen Mary University of London. Based in Dubai, he leads AI workflow software delivery, AC-free cooling simulations, robotics evaluations, and modular housing advisory.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CORE PRACTICE AREAS (INTERACTIVE TABS) ==================== -->
+  <section id="capabilities" class="bg-platinum py-20 sm:py-24 border-b border-silver-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <div class="text-[11px] font-semibold tracking-[0.2em] uppercase text-silver mb-3">02 &nbsp;/&nbsp; Core Capabilities</div>
+          <h2 class="font-oswald font-semibold text-3xl sm:text-4xl uppercase tracking-[0.02em] text-navy">
+            Four Practice Areas
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-md">
+          Select a practice area below to see how we support project teams and business operations.
+        </p>
+      </div>
+
+      <!-- Interactive Pillar Selector Buttons (4 Pillars) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-silver-border bg-white divide-y sm:divide-y-0 sm:divide-x divide-silver-border mb-8" role="tablist">
+        <button type="button" data-tab="pillar-1" class="pillar-tab text-left p-5 transition-colors bg-navy text-white focus:outline-none" role="tab" aria-selected="true">
+          <div class="text-[10px] font-semibold tracking-[0.18em] uppercase opacity-75 mb-1">01</div>
+          <div class="font-oswald text-base uppercase tracking-[0.03em] leading-snug">AI Workflow &amp; Task Management Tools</div>
+        </button>
+        <button type="button" data-tab="pillar-2" class="pillar-tab text-left p-5 transition-colors bg-white text-navy hover:bg-platinum/60 focus:outline-none" role="tab" aria-selected="false">
+          <div class="text-[10px] font-semibold tracking-[0.18em] uppercase text-silver mb-1">02</div>
+          <div class="font-oswald text-base uppercase tracking-[0.03em] leading-snug">Passive &amp; Active AC-Free Cooling Simulations</div>
+        </button>
+        <button type="button" data-tab="pillar-3" class="pillar-tab text-left p-5 transition-colors bg-white text-navy hover:bg-platinum/60 focus:outline-none" role="tab" aria-selected="false">
+          <div class="text-[10px] font-semibold tracking-[0.18em] uppercase text-silver mb-1">03</div>
+          <div class="font-oswald text-base uppercase tracking-[0.03em] leading-snug">Autonomous Construction &amp; Robotics Systems</div>
+        </button>
+        <button type="button" data-tab="pillar-4" class="pillar-tab text-left p-5 transition-colors bg-white text-navy hover:bg-platinum/60 focus:outline-none" role="tab" aria-selected="false">
+          <div class="text-[10px] font-semibold tracking-[0.18em] uppercase text-silver mb-1">04</div>
+          <div class="font-oswald text-base uppercase tracking-[0.03em] leading-snug">Modular &amp; Low-Income Housing Systems</div>
+        </button>
+      </div>
+
+      <!-- Active Pillar Detail Card -->
+      <div class="bg-white border border-silver-border p-6 sm:p-10">
+        <!-- Pillar 1 Content: AI Workflow & Task Management Tools -->
+        <div id="pillar-1" class="pillar-panel animate-panel grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-7">
+            <div class="inline-block px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.16em] uppercase mb-4">
+              01 &nbsp;|&nbsp; Intelligent Task &amp; Operations Workspace
+            </div>
+            <h3 class="font-oswald text-2xl sm:text-3xl uppercase tracking-[0.02em] text-navy mb-4">
+              AI Workflow &amp; Task Management Tools
+            </h3>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+              Traditional project trackers like ClickUp often create more admin work than they save. We build streamlined, AI-powered task and workflow management tools that help teams organize deliverables, automate routine follow-ups, assign priorities, and track daily operations in one clean workspace.
+            </p>
+            <div class="border-t border-silver-border pt-5">
+              <div class="text-xs font-semibold uppercase tracking-[0.14em] text-navy mb-2">Typical Applications</div>
+              <p class="text-xs sm:text-sm text-slate-600">
+                Replacing bloated project management boards, automating team status updates, tracking client deliverables, and centralizing daily task lists.
+              </p>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-platinum/60 border border-silver-border p-6">
+            <div class="text-xs font-oswald uppercase tracking-[0.14em] text-navy mb-4 pb-2 border-b border-silver-border">
+              What We Deliver
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Clean, custom AI task boards tailored to how your team actually works</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Automated task routing, deadline reminders, and progress summaries</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>One-click conversion of meeting notes and emails into assigned tasks</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Simple executive dashboards showing bottlenecks and active priorities</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar 2 Content: Passive & Active AC-Free Cooling Simulations -->
+        <div id="pillar-2" class="pillar-panel hidden animate-panel grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-7">
+            <div class="inline-block px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.16em] uppercase mb-4">
+              02 &nbsp;|&nbsp; Low-Energy &amp; AC-Free Comfort Testing
+            </div>
+            <h3 class="font-oswald text-2xl sm:text-3xl uppercase tracking-[0.02em] text-navy mb-4">
+              Passive &amp; Active AC-Free Cooling Simulations
+            </h3>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+              Conventional air conditioning is expensive to install and run in hot climates. We simulate passive and active AC-free cooling strategies before construction begins, testing how shade structures, natural airflow, earth-air ventilation, thermal curtains, and low-energy fans keep spaces comfortable without traditional AC units.
+            </p>
+            <div class="border-t border-silver-border pt-5">
+              <div class="text-xs font-semibold uppercase tracking-[0.14em] text-navy mb-2">Typical Applications</div>
+              <p class="text-xs sm:text-sm text-slate-600">
+                Outdoor shaded walkways and cycle tracks, semi-enclosed public spaces, low-energy residential developments, and warehouses seeking AC-free cooling.
+              </p>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-platinum/60 border border-silver-border p-6">
+            <div class="text-xs font-oswald uppercase tracking-[0.14em] text-navy mb-4 pb-2 border-b border-silver-border">
+              What We Deliver
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Airflow and shade canopy simulations to block peak summer heat</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Passive cooling comparisons using earth-air tunnels and thermal curtains</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Active AC-free ventilation sizing using low-energy exhaust and circulation fans</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Clear reports comparing comfort temperatures, capital cost, and energy savings</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar 3 Content: Autonomous Construction & Robotics Systems -->
+        <div id="pillar-3" class="pillar-panel hidden animate-panel grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-7">
+            <div class="inline-block px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.16em] uppercase mb-4">
+              03 &nbsp;|&nbsp; Equipment Selection &amp; Site Feasibility
+            </div>
+            <h3 class="font-oswald text-2xl sm:text-3xl uppercase tracking-[0.02em] text-navy mb-4">
+              Autonomous Construction &amp; Robotics Systems
+            </h3>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+              Deploying automated construction equipment on real sites requires checking whether your building layouts, site access, and local regulations fit the machinery. We provide independent evaluations of construction robotics and autonomous platforms before you commit capital.
+            </p>
+            <div class="border-t border-silver-border pt-5">
+              <div class="text-xs font-semibold uppercase tracking-[0.14em] text-navy mb-2">Typical Applications</div>
+              <p class="text-xs sm:text-sm text-slate-600">
+                Selecting suitable building designs for automated construction, comparing equipment suppliers, and preparing technical submissions for local authorities.
+              </p>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-platinum/60 border border-silver-border p-6">
+            <div class="text-xs font-oswald uppercase tracking-[0.14em] text-navy mb-4 pb-2 border-b border-silver-border">
+              What We Deliver
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Building design compatibility reviews for robotic construction</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Independent comparisons of equipment manufacturers and distributors</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Site logistics and summer heat operational planning</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Clear written decision records for leadership and regulators</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar 4 Content: Modular & Low-Income Housing Systems -->
+        <div id="pillar-4" class="pillar-panel hidden animate-panel grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-7">
+            <div class="inline-block px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.16em] uppercase mb-4">
+              04 &nbsp;|&nbsp; Scalable &amp; Prefabricated Residential Systems
+            </div>
+            <h3 class="font-oswald text-2xl sm:text-3xl uppercase tracking-[0.02em] text-navy mb-4">
+              Modular &amp; Low-Income Housing Systems
+            </h3>
+            <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+              Delivering affordable housing at scale requires repeatable building methods that stay comfortable and assemble quickly on site. We advise developers and project sponsors on selecting modular building systems, reviewing structural layouts, and organizing cost-effective build strategies.
+            </p>
+            <div class="border-t border-silver-border pt-5">
+              <div class="text-xs font-semibold uppercase tracking-[0.14em] text-navy mb-2">Typical Applications</div>
+              <p class="text-xs sm:text-sm text-slate-600">
+                Modular residential developments, low-income housing proposals, wall and roof insulation upgrades, and factory-to-site assembly planning.
+              </p>
+            </div>
+          </div>
+          <div class="lg:col-span-5 bg-platinum/60 border border-silver-border p-6">
+            <div class="text-xs font-oswald uppercase tracking-[0.14em] text-navy mb-4 pb-2 border-b border-silver-border">
+              What We Deliver
+            </div>
+            <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Modular building system reviews and construction method comparisons</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Wall, roof, and glazing checks to keep interiors cool at lower cost</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Technical specifications and engineering sections for client proposals</li>
+              <li class="flex items-start"><span class="text-navy font-bold mr-2.5">/</span>Step-by-step on-site assembly sequencing and quality checklists</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SELECTED TECHNICAL EXPERIENCE ==================== -->
+  <section id="track-record" class="bg-white py-20 sm:py-24 border-b border-silver-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="max-w-3xl mb-14">
+        <div class="text-[11px] font-semibold tracking-[0.2em] uppercase text-silver mb-3">03 &nbsp;/&nbsp; Experience</div>
+        <h2 class="font-oswald font-semibold text-3xl sm:text-4xl uppercase tracking-[0.02em] text-navy mb-4">
+          Representative Work
+        </h2>
+        <p class="text-sm sm:text-base text-slate-600">
+          Examples of engineering, simulation, and software advisory projects delivered across the UAE and UK (client and partner names kept confidential).
+        </p>
+      </div>
+
+      <!-- 2x2 Architectural Case Study Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Brief 01 -->
+        <article class="border border-silver-border bg-white p-7 sm:p-8 flex flex-col justify-between hover:border-navy transition-colors">
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-semibold tracking-[0.16em] uppercase text-silver pb-4 mb-5 border-b border-silver-border">
+              <span>01 &nbsp;|&nbsp; AC-Free Cooling Simulations</span>
+              <span class="text-navy">Dubai, UAE</span>
+            </div>
+            <h3 class="font-oswald text-xl sm:text-2xl uppercase tracking-[0.02em] text-navy mb-3">
+              Passive &amp; Active AC-Free Cooling for Elevated Track
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Built custom simulation models to test how an elevated outdoor cycle track could stay comfortable in peak summer heat without conventional air conditioning. Compared solar shade canopies, earth-air underground ventilation, thermal curtains, and low-energy fan extraction, delivering two clear reports to guide design choices.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-platinum flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">AC-Free Cooling</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Shade &amp; Airflow</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Feasibility Reports</span>
+          </div>
+        </article>
+
+        <!-- Brief 02 -->
+        <article class="border border-silver-border bg-white p-7 sm:p-8 flex flex-col justify-between hover:border-navy transition-colors">
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-semibold tracking-[0.16em] uppercase text-silver pb-4 mb-5 border-b border-silver-border">
+              <span>02 &nbsp;|&nbsp; Construction Robotics</span>
+              <span class="text-navy">Dubai, UAE</span>
+            </div>
+            <h3 class="font-oswald text-xl sm:text-2xl uppercase tracking-[0.02em] text-navy mb-3">
+              Automated Housing Pilot &amp; Authority Review
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Reviewed candidate residential building designs for a robotic construction pilot, recommending the most suitable structural layout for approval. Evaluated equipment suppliers and prepared formal technical responses for a UAE transport authority covering summer heat restrictions and autonomous vehicle guidelines.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-platinum flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Equipment Vetting</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Design Selection</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Regulatory Submissions</span>
+          </div>
+        </article>
+
+        <!-- Brief 03 -->
+        <article class="border border-silver-border bg-white p-7 sm:p-8 flex flex-col justify-between hover:border-navy transition-colors">
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-semibold tracking-[0.16em] uppercase text-silver pb-4 mb-5 border-b border-silver-border">
+              <span>03 &nbsp;|&nbsp; AI Workflow Software</span>
+              <span class="text-navy">London &amp; Dubai</span>
+            </div>
+            <h3 class="font-oswald text-xl sm:text-2xl uppercase tracking-[0.02em] text-navy mb-3">
+              Predictive Modelling &amp; Automated Task Workflows
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Built custom Python automation tools and predictive network models that turn raw engineering outputs and project data into structured action items. Replaced manual tracking spreadsheets with streamlined workflows, automated error checks, and clear progress reporting for technical teams.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-platinum flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Workflow Automation</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Task Tracking</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Predictive Tools</span>
+          </div>
+        </article>
+
+        <!-- Brief 04 -->
+        <article class="border border-silver-border bg-white p-7 sm:p-8 flex flex-col justify-between hover:border-navy transition-colors">
+          <div>
+            <div class="flex items-center justify-between text-[11px] font-semibold tracking-[0.16em] uppercase text-silver pb-4 mb-5 border-b border-silver-border">
+              <span>04 &nbsp;|&nbsp; Low-Energy Building Systems</span>
+              <span class="text-navy">Swansea, UK</span>
+            </div>
+            <h3 class="font-oswald text-xl sm:text-2xl uppercase tracking-[0.02em] text-navy mb-3">
+              Hourly Building Climate &amp; Energy Performance Study
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed mb-6">
+              Created an hour-by-hour building climate simulation driven by local weather and solar data to test how low-energy heating and cooling systems perform across the full year. Benchmarked real-world energy losses against published building records to improve system sizing and operating schedules.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-platinum flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Climate Simulation</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Solar &amp; Ventilation</span>
+            <span class="px-2.5 py-1 bg-platinum text-navy text-[10px] font-semibold tracking-[0.1em] uppercase">Energy Efficiency</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT & ENQUIRIES ==================== -->
+  <section id="contact" class="bg-platinum py-20 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Direct Contact Details -->
+        <div class="lg:col-span-5">
+          <div class="text-[11px] font-semibold tracking-[0.2em] uppercase text-silver mb-3">04 &nbsp;/&nbsp; Contact &amp; Enquiries</div>
+          <h2 class="font-oswald font-semibold text-3xl sm:text-4xl uppercase tracking-[0.02em] text-navy mb-4">
+            Start a Project Conversation
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-8">
+            If you are looking for a cleaner AI task management workspace, testing AC-free cooling options, or planning a modular or automated construction project, get in touch by email or send a quick summary below.
+          </p>
+
+          <div class="bg-white border border-silver-border p-6 sm:p-7 space-y-5">
+            <div>
+              <div class="text-[10px] font-semibold tracking-[0.18em] uppercase text-silver">Direct Email</div>
+              <a href="mailto:enquiries@breconandfulton.com" class="font-medium text-base text-navy hover:underline mt-1 inline-block">
+                enquiries@breconandfulton.com
+              </a>
+            </div>
+            <div class="pt-4 border-t border-platinum">
+              <div class="text-[10px] font-semibold tracking-[0.18em] uppercase text-silver">Office Location</div>
+              <div class="font-medium text-sm text-navy mt-1">
+                Dubai, United Arab Emirates
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Standard Project Enquiry Form (Supports Formspree Direct Send + Mailto Fallback) -->
+        <div class="lg:col-span-7 bg-white border border-silver-border p-6 sm:p-9">
+          <form id="enquiry-form" action="https://formspree.io/f/xrpqgwkp" method="POST" data-formspree-id="xrpqgwkp" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name-input" class="block text-[11px] font-semibold tracking-[0.16em] uppercase text-navy mb-2">
+                  Your Name
+                </label>
+                <input id="name-input" name="name" type="text" required placeholder="Full name" class="w-full px-4 py-3 bg-white border border-silver-border rounded-[2px] text-sm text-slate-800 focus:outline-none focus:border-navy" />
+              </div>
+              <div>
+                <label for="company-input" class="block text-[11px] font-semibold tracking-[0.16em] uppercase text-navy mb-2">
+                  Company / Organization
+                </label>
+                <input id="company-input" name="company" type="text" placeholder="Company name" class="w-full px-4 py-3 bg-white border border-silver-border rounded-[2px] text-sm text-slate-800 focus:outline-none focus:border-navy" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="email-input" class="block text-[11px] font-semibold tracking-[0.16em] uppercase text-navy mb-2">
+                  Email Address
+                </label>
+                <input id="email-input" name="email" type="email" required placeholder="name@company.com" class="w-full px-4 py-3 bg-white border border-silver-border rounded-[2px] text-sm text-slate-800 focus:outline-none focus:border-navy" />
+              </div>
+              <div>
+                <label for="interest-select" class="block text-[11px] font-semibold tracking-[0.16em] uppercase text-navy mb-2">
+                  Area of Interest
+                </label>
+                <select id="interest-select" name="interest" class="w-full px-4 py-3 bg-white border border-silver-border rounded-[2px] text-sm text-navy font-medium focus:outline-none focus:border-navy">
+                  <option value="AI Workflow & Task Management Tools">AI Workflow &amp; Task Management Tools</option>
+                  <option value="Passive & Active AC-Free Cooling Simulations">Passive &amp; Active AC-Free Cooling Simulations</option>
+                  <option value="Autonomous Construction & Robotics Systems">Autonomous Construction &amp; Robotics Systems</option>
+                  <option value="Modular & Low-Income Housing Systems">Modular &amp; Low-Income Housing Systems</option>
+                  <option value="General Project Enquiry">General Project Enquiry</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="message-input" class="block text-[11px] font-semibold tracking-[0.16em] uppercase text-navy mb-2">
+                Project Summary
+              </label>
+              <textarea id="message-input" name="message" rows="4" required placeholder="Briefly describe what you are working on and how we can help..." class="w-full px-4 py-3 bg-white border border-silver-border rounded-[2px] text-sm text-slate-800 focus:outline-none focus:border-navy"></textarea>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <button id="submit-enquiry-btn" type="submit" class="inline-flex items-center justify-center px-7 py-3.5 bg-navy text-white font-oswald text-xs font-medium tracking-[0.16em] uppercase rounded-[2px] hover:bg-navy-dark transition-colors">
+                <span id="submit-btn-label">Send Enquiry</span>
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </button>
+
+              <button id="copy-enquiry-btn" type="button" class="inline-flex items-center justify-center px-6 py-3.5 bg-white text-navy border border-navy font-oswald text-xs font-medium tracking-[0.16em] uppercase rounded-[2px] hover:bg-platinum transition-colors">
+                Copy Message
+              </button>
+            </div>
+
+            <!-- Inline Status Message Box -->
+            <div id="status-toast" class="hidden p-3 bg-navy text-white text-xs text-center tracking-wide rounded-[2px]">
+              Enquiry details copied to clipboard. You can paste them into your email client to send to enquiries@breconandfulton.com.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ARCHITECTURAL FOOTER ==================== -->
+  <footer class="bg-navy text-white border-t border-navy-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-10 border-b border-white/15">
+        
+        <!-- Inverted Brand Wordmark Lockup -->
+        <div class="inline-flex flex-col items-stretch">
+          <span class="font-oswald font-bold text-2xl tracking-[0.04em] text-white leading-none uppercase">
+            BRECON &amp; FULTON
+          </span>
+          <span class="h-[1.5px] bg-silver my-1.5 w-full"></span>
+          <span class="font-inter font-medium text-[10px] tracking-[0.36em] text-silver uppercase leading-none flex justify-between">
+            <span>C</span><span>O</span><span>N</span><span>S</span><span>U</span><span>L</span><span>T</span><span>I</span><span>N</span><span>G</span>
+          </span>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="flex flex-wrap gap-6 text-xs font-medium tracking-[0.14em] uppercase text-silver-light">
+          <a href="#practice" class="hover:text-white transition-colors">The Firm</a>
+          <a href="#capabilities" class="hover:text-white transition-colors">Capabilities</a>
+          <a href="#track-record" class="hover:text-white transition-colors">Experience</a>
+          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+          <a href="mailto:enquiries@breconandfulton.com" class="hover:text-white transition-colors lowercase tracking-normal font-normal">enquiries@breconandfulton.com</a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-silver">
+        <div>
+          &copy; <span id="current-year"></span> Brecon &amp; Fulton Consulting. All Rights Reserved.
+        </div>
+        <div class="tracking-[0.12em] uppercase text-[11px]">
+          Dubai, United Arab Emirates
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTIVE SCRIPT ==================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Set current year in footer
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('menu-icon-open');
+      const iconClose = document.getElementById('menu-icon-close');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden', !isHidden);
+          iconOpen.classList.toggle('hidden', isHidden);
+          iconClose.classList.toggle('hidden', !isHidden);
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          });
+        });
+      }
+
+      // Interactive Practice Pillar Tabs
+      const tabs = document.querySelectorAll('.pillar-tab');
+      const panels = document.querySelectorAll('.pillar-panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetId = tab.getAttribute('data-tab');
+
+          // Reset all tabs
+          tabs.forEach(t => {
+            t.classList.remove('bg-navy', 'text-white');
+            t.classList.add('bg-white', 'text-navy', 'hover:bg-platinum/60');
+            t.setAttribute('aria-selected', 'false');
+            const label = t.querySelector('div:first-child');
+            if (label) {
+              label.classList.remove('opacity-75');
+              label.classList.add('text-silver');
+            }
+          });
+
+          // Activate selected tab
+          tab.classList.remove('bg-white', 'text-navy', 'hover:bg-platinum/60');
+          tab.classList.add('bg-navy', 'text-white');
+          tab.setAttribute('aria-selected', 'true');
+          const activeLabel = tab.querySelector('div:first-child');
+          if (activeLabel) {
+            activeLabel.classList.remove('text-silver');
+            activeLabel.classList.add('opacity-75');
+          }
+
+          // Toggle panels
+          panels.forEach(panel => {
+            if (panel.id === targetId) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // Project Enquiry Form Handler (Formspree Direct Delivery + Mailto Fallback)
+      const TARGET_EMAIL = 'enquiries@breconandfulton.com';
+      const enquiryForm = document.getElementById('enquiry-form');
+      const nameInput = document.getElementById('name-input');
+      const companyInput = document.getElementById('company-input');
+      const emailInput = document.getElementById('email-input');
+      const interestSelect = document.getElementById('interest-select');
+      const messageInput = document.getElementById('message-input');
+      const submitBtn = document.getElementById('submit-enquiry-btn');
+      const submitBtnLabel = document.getElementById('submit-btn-label');
+      const copyBtn = document.getElementById('copy-enquiry-btn');
+      const statusToast = document.getElementById('status-toast');
+
+      function showStatus(text, isError = false) {
+        statusToast.textContent = text;
+        statusToast.classList.remove('hidden', 'bg-navy', 'bg-red-800');
+        statusToast.classList.add(isError ? 'bg-red-800' : 'bg-navy');
+      }
+
+      function buildEnquiryBody() {
+        const name = nameInput.value.trim() || 'Not provided';
+        const company = companyInput.value.trim() || 'Not provided';
+        const email = emailInput.value.trim() || 'Not provided';
+        const interest = interestSelect.value;
+        const message = messageInput.value.trim() || 'Please get in touch regarding a project enquiry.';
+
+        return `Name: ${name}\nCompany: ${company}\nEmail: ${email}\nArea of Interest: ${interest}\n\nMessage:\n${message}`;
+      }
+
+      enquiryForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formspreeId = (enquiryForm.getAttribute('data-formspree-id') || '').trim();
+        const company = companyInput.value.trim();
+        const interest = interestSelect.value;
+        const subjectText = company
+          ? `Project Enquiry: ${interest} (${company})`
+          : `Project Enquiry: ${interest}`;
+
+        // If Formspree ID is configured, send directly without opening user's email app
+        if (formspreeId) {
+          submitBtn.disabled = true;
+          submitBtnLabel.textContent = 'Sending...';
+          try {
+            const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                _subject: subjectText,
+                name: nameInput.value.trim(),
+                company: company,
+                email: emailInput.value.trim(),
+                interest: interest,
+                message: messageInput.value.trim()
+              })
+            });
+
+            if (response.ok) {
+              enquiryForm.reset();
+              showStatus(`Thank you. Your enquiry has been sent directly to ${TARGET_EMAIL}.`);
+            } else {
+              showStatus(`Unable to send automatically. Please email ${TARGET_EMAIL} directly.`, true);
+            }
+          } catch (err) {
+            showStatus(`Network error. Please email ${TARGET_EMAIL} directly.`, true);
+          } finally {
+            submitBtn.disabled = false;
+            submitBtnLabel.textContent = 'Send Enquiry';
+          }
+          return;
+        }
+
+        // Clean fallback to user's default mail client if no Formspree ID is added yet
+        const subject = encodeURIComponent(subjectText);
+        const body = encodeURIComponent(buildEnquiryBody());
+        window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
+        showStatus(`Opening your email app addressed to ${TARGET_EMAIL}...`);
+      });
+
+      copyBtn.addEventListener('click', () => {
+        const tempTextarea = document.createElement('textarea');
+        tempTextarea.value = `To: ${TARGET_EMAIL}\n\n${buildEnquiryBody()}`;
+        tempTextarea.style.position = 'fixed';
+        tempTextarea.style.opacity = '0';
+        document.body.appendChild(tempTextarea);
+        tempTextarea.select();
+        try {
+          document.execCommand('copy');
+          showStatus(`Enquiry details copied to clipboard. You can paste them into your email client to send to ${TARGET_EMAIL}.`);
+          setTimeout(() => {
+            statusToast.classList.add('hidden');
+          }, 4000);
+        } catch (err) {
+          console.error('Copy failed', err);
+        }
+        document.body.removeChild(tempTextarea);
+      });
+    });
+  </script>
+</body>
+</html>
