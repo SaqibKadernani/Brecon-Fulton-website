@@ -1,0 +1,27 @@
+# Brecon & Fulton Consulting
+
+> Brecon & Fulton Consulting is an independent engineering and AI software consultancy based in Dubai, United Arab Emirates. It advises property developers, industrial operators and technology ventures on construction robotics, building cooling and energy simulation, modular housing, and custom AI workflow software. Client names on past projects are kept confidential.
+
+Principal: Saqib Kadernani, Managing Director & Principal Consultant. BEng Mechanical Engineering (Swansea University); MSc Biomedical Engineering with Distinction (Queen Mary University of London).
+
+Contact: enquiries@breconandfulton.com
+
+## Practice areas
+
+- AI Workflow & Task Management Tools: custom AI task boards, automated routing and reminders, converting meeting notes and emails into tasks, executive dashboards.
+- Passive & Active AC-Free Cooling Simulations: airflow and shade modelling, earth-air tunnels versus thermal curtains, low-energy ventilation sizing, cost and energy reports.
+- Autonomous Construction & Robotics Systems: building design compatibility reviews, independent vendor comparisons, site logistics and heat planning, written decision records.
+- Modular & Low-Income Housing Systems: modular system reviews, wall, roof and glazing checks, technical specifications, on-site assembly sequencing.
+
+## Representative work
+
+- Passive and active AC-free cooling study for an elevated outdoor cycle track, Dubai: cooling simulations and two feasibility reports.
+- Automated housing pilot and authority review, Dubai: building design selection, equipment vetting and regulatory submissions for a robotic construction pilot.
+- Predictive modelling and automated task workflows, London and Dubai: Python automation and predictive network models replacing manual tracking.
+- Hourly building climate and energy performance study, Swansea, UK: full-year hourly simulation benchmarked against published building records.
+
+## Pages
+
+- [Home](https://breconandfulton.com/): firm overview, practice areas, representative work, FAQ and enquiry form.
+- [Practice areas](https://breconandfulton.com/#capabilities): the four services in full.
+- [FAQ](https://breconandfulton.com/#faq): plain answers to common questions about the firm and its services.
