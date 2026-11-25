@@ -983,11 +983,36 @@
       if (initialHash) showPractice(initialHash, true);
       window.addEventListener('hashchange', () => showPractice(location.hash.slice(1), true));
 
-      // FAQ: open one answer at a time
+      // FAQ: animated dropdowns, one answer open at a time
       const faqItems = document.querySelectorAll('.faq-item');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function setFaq(item, open) {
+        const isOpen = item._anim ? item._target : item.open;
+        if (isOpen === open) return;
+        if (reduceMotion) { item.open = open; return; }
+        const start = item.offsetHeight;
+        if (item._anim) item._anim.cancel();
+        item._target = open;
+        item.style.overflow = 'hidden';
+        if (open) item.open = true;
+        const frame = item.offsetHeight - item.clientHeight;
+        const end = open ? item.offsetHeight : item.querySelector('summary').offsetHeight + frame;
+        const body = item.querySelector('.faq-body');
+        body.animate({ opacity: open ? [0, 1] : [1, 0] }, { duration: 280, easing: 'ease-out' });
+        const anim = item.animate({ height: [start + 'px', end + 'px'] }, { duration: 320, easing: 'cubic-bezier(.4,0,.2,1)' });
+        item._anim = anim;
+        anim.onfinish = () => {
+          if (!open) item.open = false;
+          item.style.overflow = '';
+          item._anim = null;
+        };
+      }
       faqItems.forEach(item => {
-        item.addEventListener('toggle', () => {
-          if (item.open) faqItems.forEach(o => { if (o !== item) o.open = false; });
+        item.querySelector('summary').addEventListener('click', (e) => {
+          e.preventDefault();
+          const willOpen = !(item._anim ? item._target : item.open);
+          if (willOpen) faqItems.forEach(o => { if (o !== item) setFaq(o, false); });
+          setFaq(item, willOpen);
         });
       });
 
